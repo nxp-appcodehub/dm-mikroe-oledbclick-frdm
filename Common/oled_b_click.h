@@ -87,9 +87,8 @@ void oledBclick_init(oled_i2c_transfer transfer_func);
 
 void oledBclick_clear_screen();
 
-void oledBclick_set_start_img();
-
 void oledBclick_write_image(const uint8_t image[5][96]);
+
 // Fundamental command table --------------------------------------------------
 int32_t oledBclick_enable_display(bool enable);
 

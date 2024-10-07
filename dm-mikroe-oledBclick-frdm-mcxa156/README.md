@@ -6,17 +6,17 @@
 Demo is an example for Mikroe OLED B click module in FRDM boards usign CMSIS driver for I2C comunication, and GPIO component.
 
 Mikroe OLED B click demo is in [This repository](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm)
-and is supported for many boards that are divided in branches.
-### Branches for specific boards
-- [FRDM MCXC041](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-c041)
-- [FRDM MCXC242](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-c242)
-- [FRDM MCXC444](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-c444)
-- [FRDM MCXCA153](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-a153)
-- [FRDM MCXCA156](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-a156)
-- [FRDM MCXCN236](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-n236)
-- [FRDM MCXCN947](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-n247)
-- [FRDM MCXCW71](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/mcx-w71)
-- [FRDM RW612](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm/tree/rw612)
+and is supported for many boards.
+### Specific boards
+- FRDM MCXC041
+- FRDM MCXC242
+- FRDM MCXC444
+- FRDM MCXA153
+- FRDM MCXA156
+- FRDM MCXN236
+- FRDM MCXN947
+- FRDM MCXW71
+- FRDM RW612
 #### Boards: FRDM-MCXN947, FRDM-RW612, FRDM-MCXW71, FRDM-MCXA153, FRDM-MCXA156, FRDM-MCXC041, FRDM-MCXC242, FRDM-MCXC444, FRDM-MCXN236
 #### Categories: Graphics, HMI, User Interface
 #### Peripherals: GPIO, I2C, UART
@@ -38,15 +38,15 @@ and is supported for many boards that are divided in branches.
 
 ## 2. Hardware<a name="step2"></a>
 - [FRDM-MCXA156](https://www.nxp.com/design/design-center/development-boards-and-designs/general-purpose-mcus/frdm-development-board-for-mcx-n94-n54-mcus:FRDM-MCXA156)   
-[<p align="center"><img src="https://www.nxp.com/assets/images/en/dev-board-image/FRDM-MCXA156-TOP.jpg" width="500"/></p>](https://www.nxp.com/assets/images/en/dev-board-image/FRDM-MCXA156-TOP.jpg)
+[<p align="center"><img src="../Common/Images/MCXA156.png" width="400"/></p>](../Common/Images/MCXA156.png)
 - [MIKROE OLED-B-CLICK](https://www.mikroe.com/oled-b-click)   
-[<p align="center"><img src="https://cdn1-shop.mikroe.com/img/product/oled-b-click/oled-b-click-thickbox_default-1.jpg" width="400"/></p>](https://cdn1-shop.mikroe.com/img/product/oled-b-click/oled-b-click-thickbox_default-1.jpg)
+[<p align="center"><img src="../Common/Images/OledBClick.png" width="100"/></p>](../Common/Images/OledBClick.png)
 
 
 ## 3. Setup<a name="step3"></a>
 
 ### 3.1 Plug Mikroe Joystick-2-click in FRDM-MCXA156
-[<p align="center"><img src="Images/plug.png" width="800"/></p>](Images/plug.png)<br>
+[<p align="center"><img src="../Common/Images/plug_MCXA156.png" width="400"/></p>](../Common/Images/plug_MCXA156.png)<br>
 ### 3.2 Upload code in FRDM-MCXA156
 
 ## 4. Results<a name="step4"></a>
@@ -56,16 +56,16 @@ and is supported for many boards that are divided in branches.
         - StopBits:  1
     - Reset FRDM-MCXA156 with SW1
     - Serial monitor should shows next
-[<p align="center"><img src="Images/Terminal.PNG" width="500"/></p>](Images/Terminal.JPG)<br>
+[<p align="center"><img src="../Common/Images/Terminal.PNG" width="500"/></p>](../Common/Images/Terminal.PNG)<br>
 OLED screen should show next
-[<p align="center"><img src="Images/oledBclick.gif" width="200"/></p>](Images/oledBclick.gif)
+[<p align="center"><img src="../Common/Images/oledBclick.gif" width="200"/></p>](../Common/Images/oledBclick.gif)
 
 ### Convert Images
 Demo includes python script to resize and convert ever image to binary for the screen.<br>
 - Run script on CMD and type the root and name of image to convert.<br>
-[<p align="center"><img src="Images/script_results.PNG" width="500"/></p>](Images/script_results.PNG)
+[<p align="center"><img src="../Common/Images/script_results.PNG" width="500"/></p>](../Common/Images/script_results.PNG)
 - Script generates .c file with the image array.<br>
-[<p align="center"><img src="Images/file_generated.PNG" width="500"/></p>](Images/file_generated.PNG)
+[<p align="center"><img src="../Common/Images/file_generated.PNG" width="500"/></p>](../Common/Images/file_generated.PNG)
 #### Project Metadata
 
 <!----- Boards ----->
@@ -106,3 +106,11 @@ Questions regarding the content/correctness of this example can be entered as Is
 | Version | Description / Update                           | Date                        |
 |:-------:|------------------------------------------------|----------------------------:|
 | 1.0     | Initial release on Application Code Hub        | September 23<sup>rd</sup> 2024 |
+
+<small>
+<b>Trademarks and Service Marks</b>: There are a number of proprietary logos, service marks, trademarks, slogans and product designations ("Marks") found on this Site. By making the Marks available on this Site, NXP is not granting you a license to use them in any fashion. Access to this Site does not confer upon you any license to the Marks under any of NXP or any third party's intellectual property rights. While NXP encourages others to link to our URL, no NXP trademark or service mark may be used as a hyperlink without NXP’s prior written permission. The following Marks are the property of NXP. This list is not comprehensive; the absence of a Mark from the list does not constitute a waiver of intellectual property rights established by NXP in a Mark.
+</small>
+<br>
+<small>
+NXP, the NXP logo, NXP SECURE CONNECTIONS FOR A SMARTER WORLD, Airfast, Altivec, ByLink, CodeWarrior, ColdFire, ColdFire+, CoolFlux, CoolFlux DSP, DESFire, EdgeLock, EdgeScale, EdgeVerse, elQ, Embrace, Freescale, GreenChip, HITAG, ICODE and I-CODE, Immersiv3D, I2C-bus logo , JCOP, Kinetis, Layerscape, MagniV, Mantis, MCCI, MIFARE, MIFARE Classic, MIFARE FleX, MIFARE4Mobile, MIFARE Plus, MIFARE Ultralight, MiGLO, MOBILEGT, NTAG, PEG, Plus X, POR, PowerQUICC, Processor Expert, QorIQ, QorIQ Qonverge, RoadLink wordmark and logo, SafeAssure, SafeAssure logo , SmartLX, SmartMX, StarCore, Symphony, Tower, TriMedia, Trimension, UCODE, VortiQa, Vybrid are trademarks of NXP B.V. All other product or service names are the property of their respective owners. © 2021 NXP B.V.
+</small>

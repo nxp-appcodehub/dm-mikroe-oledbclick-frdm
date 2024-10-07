@@ -39,6 +39,11 @@
 #include "fsl_lpi2c_cmsis.h"
 
 #else
+#ifdef MCXN236
+#include "fsl_lpi2c.h"
+#include "fsl_lpi2c_cmsis.h"
+
+#else
 #ifdef MCXN947
 #include "fsl_lpi2c.h"
 #include "fsl_lpi2c_cmsis.h"
@@ -49,8 +54,15 @@
 #include "fsl_lpi2c_cmsis.h"
 
 #else
+#ifdef RW612
+#include "fsl_i2c.h"
+#include "fsl_i2c_cmsis.h"
+
+#else
 #error "NOT BOARD DEFINED IN PREPROCESSOR"
 
+#endif
+#endif
 #endif
 #endif
 #endif
@@ -87,26 +99,39 @@
 #else
 #ifdef MCXA153
 #define CMSIS_I2C_MASTER 			Driver_I2C0
-#define LPI2C_CLOCK_FREQUENCY 		CLOCK_GetLpi2cClkFreq()
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetLpi2cClkFreq()
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetFreq(kCLOCK_MainClk)
 
 #else
 #ifdef MCXA156
 #define CMSIS_I2C_MASTER 			Driver_I2C3
-#define LPI2C_CLOCK_FREQUENCY 		CLOCK_GetLpi2cClkFreq(3)
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetLpi2cClkFreq(3)
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetFreq(kCLOCK_MainClk)
+
+#else
+#ifdef MCXN236
+#define CMSIS_I2C_MASTER 			Driver_I2C2
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetLPFlexCommClkFreq(2u)
+#define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
 
 #else
 #ifdef MCXN947
 #define CMSIS_I2C_MASTER 			Driver_I2C3
-#define LPI2C_CLOCK_FREQUENCY 		CLOCK_GetLPFlexCommClkFreq(3u)
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetLPFlexCommClkFreq(3u)
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetMainClkFreq()
 
 #else
+#ifdef MCXW71
 #define CMSIS_I2C_MASTER 			Driver_I2C1
-#define LPI2C_CLOCK_FREQUENCY 		CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
+#define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
+#else
+#define CMSIS_I2C_MASTER 			Driver_I2C2
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetFlexCommClkFreq(2U);
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
 
+#endif
+#endif
 #endif
 #endif
 #endif
@@ -152,29 +177,44 @@ uint32_t I2C1_GetFreq(void)
 #ifdef MCXA153
 uint32_t LPI2C0_GetFreq(void)
 {
-    return LPI2C_CLOCK_FREQUENCY;
+    return I2C_CLOCK_FREQUENCY;
 }
 
 #else
 #ifdef MCXA156
 uint32_t LPI2C3_GetFreq(void)
 {
-    return LPI2C_CLOCK_FREQUENCY;
+    return I2C_CLOCK_FREQUENCY;
+}
+
+#else
+#ifdef MCXN236
+uint32_t LPI2C2_GetFreq(void)
+{
+    return I2C_CLOCK_FREQUENCY;
 }
 
 #else
 #ifdef MCXN947
 uint32_t LPI2C3_GetFreq(void)
 {
-    return LPI2C_CLOCK_FREQUENCY;
+    return I2C_CLOCK_FREQUENCY;
 }
 
 #else
+#ifdef MCXW71
 uint32_t LPI2C1_GetFreq(void)
 {
-    return LPI2C_CLOCK_FREQUENCY;
+    return I2C_CLOCK_FREQUENCY;
+}
+#else
+uint32_t I2C2_GetFreq(void)
+{
+    return CLOCK_GetFlexCommClkFreq(2U);
 }
 
+#endif
+#endif
 #endif
 #endif
 #endif
@@ -343,6 +383,26 @@ void GPIO_initialize(void)
     // ---------------------------------------------------------
 
 	#else
+	#ifdef MCXN236
+    CLOCK_EnableClock(kCLOCK_Gpio4);
+    // OLED Address pin ----------------------------------------
+    dc_gpio_config.direction	= kHAL_GpioDirectionOut;
+    dc_gpio_config.level		= 0;
+    dc_gpio_config.port			= 4;
+    dc_gpio_config.pin			= 18;
+    HAL_GpioInit(dc_gpio_handle, &dc_gpio_config);
+    // ---------------------------------------------------------
+    // Reset ---------------------------------------------------
+    rst_gpio_config.direction	= kHAL_GpioDirectionOut;
+    rst_gpio_config.level		= 0;
+    rst_gpio_config.port		= 5;
+    rst_gpio_config.pin			= 2;
+    HAL_GpioInit(rst_gpio_handle, &rst_gpio_config);
+    SDK_DelayAtLeastUs(500000, MAIN_CLOCK_FREQUENCY);
+    HAL_GpioSetOutput(rst_gpio_handle, 1);
+    // ---------------------------------------------------------
+	#else
+
 	#ifdef MCXN947
     CLOCK_EnableClock(kCLOCK_Gpio1);
     CLOCK_EnableClock(kCLOCK_Gpio3);
@@ -364,6 +424,7 @@ void GPIO_initialize(void)
     // ---------------------------------------------------------
 
 	#else
+	#if MCXW71
     CLOCK_EnableClock(kCLOCK_GpioC);
     // OLED Address pin ----------------------------------------
     dc_gpio_config.direction	= kHAL_GpioDirectionOut;
@@ -373,7 +434,26 @@ void GPIO_initialize(void)
     HAL_GpioInit(dc_gpio_handle, &dc_gpio_config);
     SDK_DelayAtLeastUs(500000, MAIN_CLOCK_FREQUENCY);
     // ---------------------------------------------------------
+	#else
+    // OLED Address pin ----------------------------------------
+    dc_gpio_config.direction	= kHAL_GpioDirectionOut;
+    dc_gpio_config.level		= 0;
+    dc_gpio_config.port			= 0;
+    dc_gpio_config.pin			= 1;
+    HAL_GpioInit(dc_gpio_handle, &dc_gpio_config);
+    // ---------------------------------------------------------
+    // Reset ---------------------------------------------------
+    rst_gpio_config.direction	= kHAL_GpioDirectionOut;
+    rst_gpio_config.level		= 0;
+    rst_gpio_config.port		= 0;
+    rst_gpio_config.pin			= 19;
+    HAL_GpioInit(rst_gpio_handle, &rst_gpio_config);
+    SDK_DelayAtLeastUs(500000, MAIN_CLOCK_FREQUENCY);
+    HAL_GpioSetOutput(rst_gpio_handle, 1);
+    // ---------------------------------------------------------
 
+	#endif
+	#endif
 	#endif
 	#endif
 	#endif
@@ -385,27 +465,37 @@ void GPIO_initialize(void)
 void I2C_clock(void)
 {
 	#ifdef MCXA153
-    // Reset peripheral
-    RESET_PeripheralReset(kLPI2C0_RST_SHIFT_RSTn);
-    // Attach I2C clock
-    CLOCK_SetClockDiv(kCLOCK_DivLPI2C0, 1u);
-    CLOCK_AttachClk(kFRO_HF_DIV_to_LPI2C0);
+	// Reset peripheral
+	RESET_PeripheralReset(kLPI2C0_RST_SHIFT_RSTn);
+	// Attach I2C clock
+	CLOCK_SetClockDiv(kCLOCK_DivLPI2C0, 1u);
+	CLOCK_AttachClk(kFRO_HF_DIV_to_LPI2C0);
 
 	#else
 	#ifdef MCXA156
-    CLOCK_SetupFRO12MClocking();
-    CLOCK_SetClockDiv(kCLOCK_DivLPI2C3, 1u);
-    CLOCK_AttachClk(kFRO_HF_DIV_to_LPI2C3);
+	CLOCK_SetupFRO12MClocking();
+	CLOCK_SetClockDiv(kCLOCK_DivLPI2C3, 1u);
+	CLOCK_AttachClk(kFRO_HF_DIV_to_LPI2C3);
+
+	#else
+	#ifdef MCXN236
+	CLOCK_SetClkDiv(kCLOCK_DivFlexcom2Clk, 1u);
+	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
 
 	#else
 	#ifdef MCXN947
-    CLOCK_SetClkDiv(kCLOCK_DivFlexcom3Clk, 1u);
-    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
+	CLOCK_SetClkDiv(kCLOCK_DivFlexcom3Clk, 1u);
+	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
 
 	#else
 	#ifdef MCXW71
-    CLOCK_SetIpSrc(kCLOCK_Lpi2c1, kCLOCK_IpSrcFro192M);
-    CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kSCG_SysClkDivBy1);
+	CLOCK_SetIpSrc(kCLOCK_Lpi2c1, kCLOCK_IpSrcFro192M);
+	CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kSCG_SysClkDivBy1);
+	#else
+	#ifdef RW612
+	CLOCK_AttachClk(kSFRO_to_FLEXCOMM2);
+	#endif
+	#endif
 	#endif
 	#endif
 	#endif
@@ -442,7 +532,6 @@ int main(void)
     PRINTF("#######################################################\r\n");
 
     while(1) {
-    	SDK_DelayAtLeastUs(ICON_PERIOD_US, MAIN_CLOCK_FREQUENCY);
     	oledBclick_write_image(icon_5g);
     	SDK_DelayAtLeastUs(ICON_PERIOD_US, MAIN_CLOCK_FREQUENCY);
     	oledBclick_write_image(icon_hmi);
@@ -451,7 +540,6 @@ int main(void)
     	SDK_DelayAtLeastUs(ICON_PERIOD_US, MAIN_CLOCK_FREQUENCY);
     	oledBclick_write_image(icon_wireless);
     	SDK_DelayAtLeastUs(ICON_PERIOD_US, MAIN_CLOCK_FREQUENCY);
-    	oledBclick_set_start_img();
     	for(repeat = 0; repeat < 10; repeat ++)
     	{
         	SDK_DelayAtLeastUs(ICON_PERIOD_US/3, MAIN_CLOCK_FREQUENCY);

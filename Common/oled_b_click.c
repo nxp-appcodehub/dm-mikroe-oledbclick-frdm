@@ -61,8 +61,6 @@ static oled_i2c_transfer 	g_i2c_transfer_function = 0;
 static uint8_t				g_buff	= 0;
 static uint8_t				g_buff_img[DISPLAY_WIDTH]	= {0};
 
-extern const uint8_t NXPLogo[8][96];
-
 // Send options ---------------------------------------------------------------
 int32_t oledBclick_send_command(uint8_t command)
 {
@@ -102,7 +100,6 @@ void oledBclick_init(oled_i2c_transfer transfer_func)
 	oledBclick_set_page_start_end_address(0, 4);
 
 	oledBclick_clear_screen();
-	oledBclick_set_start_img();
 }
 
 void oledBclick_clear_screen()
@@ -114,11 +111,6 @@ void oledBclick_clear_screen()
 		oledBclick_set_page_start_address_for_page_addressing_mode(page);
 		oledBclick_send_data(g_buff_img, DISPLAY_WIDTH);
 	}
-}
-
-void oledBclick_set_start_img()
-{
-	oledBclick_write_image(NXPLogo);
 }
 
 void oledBclick_write_image(const uint8_t image[5][96])

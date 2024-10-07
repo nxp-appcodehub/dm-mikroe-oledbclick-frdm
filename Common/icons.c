@@ -1,3 +1,9 @@
+/*
+ * Copyright 2024 NXP
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
 #include <stdint.h>
 
 const uint8_t icon_5g[8][96] = 
