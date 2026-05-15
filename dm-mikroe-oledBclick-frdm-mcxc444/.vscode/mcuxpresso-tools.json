@@ -1,0 +1,16 @@
+{
+  "version": "25.3",
+  "toolchainPath": "",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "projectType": "sdk-v2-freestanding",
+  "projectName": "dm-mikroe-oledBclick-frdm-mcxc444",
+  "sdk": {
+    "path": "",
+    "version": "",
+    "boardId": "frdmmcxc444",
+    "deviceId": "MCXC444",
+    "coreId": "core0"
+  }
+}

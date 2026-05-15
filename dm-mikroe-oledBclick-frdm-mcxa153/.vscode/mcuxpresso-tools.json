@@ -1,0 +1,16 @@
+{
+  "version": "25.3",
+  "toolchainPath": "",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "projectType": "sdk-v2-freestanding",
+  "projectName": "dm-mikroe-oledBclick-frdm-mcxa153",
+  "sdk": {
+    "path": "",
+    "version": "",
+    "boardId": "frdmmcxa153",
+    "deviceId": "MCXA153",
+    "coreId": "cm33_core0"
+  }
+}

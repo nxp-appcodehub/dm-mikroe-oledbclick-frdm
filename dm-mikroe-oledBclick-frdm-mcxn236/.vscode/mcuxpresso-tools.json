@@ -1,0 +1,16 @@
+{
+  "version": "25.3",
+  "toolchainPath": "",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "projectType": "sdk-v2-freestanding",
+  "projectName": "dm-mikroe-oledBclick-frdm-mcxn236",
+  "sdk": {
+    "path": "",
+    "version": "",
+    "boardId": "frdmmcxn236",
+    "deviceId": "MCXN236",
+    "coreId": "cm33_core0"
+  }
+}

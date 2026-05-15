@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 NXP
+ * Copyright 2024, 2026 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -54,6 +54,11 @@
 #include "fsl_lpi2c_cmsis.h"
 
 #else
+#ifdef MCXW72
+#include "fsl_lpi2c.h"
+#include "fsl_lpi2c_cmsis.h"
+
+#else
 #ifdef RW612
 #include "fsl_i2c.h"
 #include "fsl_i2c_cmsis.h"
@@ -61,6 +66,7 @@
 #else
 #error "NOT BOARD DEFINED IN PREPROCESSOR"
 
+#endif
 #endif
 #endif
 #endif
@@ -125,11 +131,19 @@
 #define CMSIS_I2C_MASTER 			Driver_I2C1
 #define I2C_CLOCK_FREQUENCY 		CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
+
+#else
+#ifdef MCXW72
+#define CMSIS_I2C_MASTER 			Driver_I2C1
+#define I2C_CLOCK_FREQUENCY 		CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
+#define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
+
 #else
 #define CMSIS_I2C_MASTER 			Driver_I2C2
 #define I2C_CLOCK_FREQUENCY 		CLOCK_GetFlexCommClkFreq(2U);
 #define MAIN_CLOCK_FREQUENCY		CLOCK_GetCoreSysClkFreq()
 
+#endif
 #endif
 #endif
 #endif
@@ -207,12 +221,21 @@ uint32_t LPI2C1_GetFreq(void)
 {
     return I2C_CLOCK_FREQUENCY;
 }
+
+#else
+#ifdef MCXW72
+uint32_t LPI2C1_GetFreq(void)
+{
+    return I2C_CLOCK_FREQUENCY;
+}
+
 #else
 uint32_t I2C2_GetFreq(void)
 {
     return CLOCK_GetFlexCommClkFreq(2U);
 }
 
+#endif
 #endif
 #endif
 #endif
@@ -274,10 +297,11 @@ int32_t oled_i2c_transfer_function(oled_i2c_option_t option, uint8_t address, ui
 
 void GPIO_initialize(void)
 {
-	#ifndef MCXW71
+	#if !defined(MCXW71) && !defined(MCXW72)
 	GPIO_HANDLE_DEFINE(rst_gpio_handle);
 	hal_gpio_pin_config_t 	rst_gpio_config;
 	#endif
+
 	GPIO_HANDLE_DEFINE(dc_gpio_handle);
 	hal_gpio_pin_config_t 	dc_gpio_config;
 
@@ -434,6 +458,19 @@ void GPIO_initialize(void)
     HAL_GpioInit(dc_gpio_handle, &dc_gpio_config);
     SDK_DelayAtLeastUs(500000, MAIN_CLOCK_FREQUENCY);
     // ---------------------------------------------------------
+
+	#else
+	#if MCXW72
+    CLOCK_EnableClock(kCLOCK_GpioC);
+   // OLED Address pin ----------------------------------------
+   dc_gpio_config.direction	= kHAL_GpioDirectionOut;
+   dc_gpio_config.level		= 0;
+   dc_gpio_config.port			= 2;
+   dc_gpio_config.pin			= 4;
+   HAL_GpioInit(dc_gpio_handle, &dc_gpio_config);
+   SDK_DelayAtLeastUs(500000, MAIN_CLOCK_FREQUENCY);
+   // ---------------------------------------------------------
+
 	#else
     // OLED Address pin ----------------------------------------
     dc_gpio_config.direction	= kHAL_GpioDirectionOut;
@@ -452,6 +489,7 @@ void GPIO_initialize(void)
     HAL_GpioSetOutput(rst_gpio_handle, 1);
     // ---------------------------------------------------------
 
+	#endif
 	#endif
 	#endif
 	#endif
@@ -491,9 +529,16 @@ void I2C_clock(void)
 	#ifdef MCXW71
 	CLOCK_SetIpSrc(kCLOCK_Lpi2c1, kCLOCK_IpSrcFro192M);
 	CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kSCG_SysClkDivBy1);
+
+	#else
+	#ifdef MCXW72
+	CLOCK_SetIpSrc(kCLOCK_Lpi2c1, kCLOCK_IpSrcFro192M);
+	CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kSCG_SysClkDivBy1);
+
 	#else
 	#ifdef RW612
 	CLOCK_AttachClk(kSFRO_to_FLEXCOMM2);
+	#endif
 	#endif
 	#endif
 	#endif

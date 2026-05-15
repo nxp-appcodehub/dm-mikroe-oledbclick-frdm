@@ -1,12 +1,12 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## Demo of mikroe oledBclick in FRDM with CMSIS driver and GPIO adapter
-Demo is an example for Mikroe OLED B click module in FRDM boards usign CMSIS driver for I2C comunication, and GPIO component.
+## Demo of mikroe OledBclick in FRDM with CMSIS driver and GPIO adapter
+This demo is an example for the Mikroe OLED B click module using FRDM boards with CMSIS driver for I2C comunication and a GPIO adapter.
 
-Mikroe OLED B click demo is in [This repository](https://github.com/nxp-appcodehub/dm-mikroe-oledBclick-frdm)
-and is supported for many FRDM boards.
-### Specific boards
+This example supports multiple FRDM boards, listed below.
+
+**Supported FRDM boards**
 - FRDM MCXC041   
 [<p align="center"><img src="Common/Images/MCXC041.png" width="300"/></p>](Common/Images/MCXC041.png)
 - FRDM MCXC242   
@@ -21,13 +21,13 @@ and is supported for many FRDM boards.
 [<p align="center"><img src="Common/Images/MCXN236.png" width="300"/></p>](Common/Images/MCXN236.png)
 - FRDM MCXN947   
 [<p align="center"><img src="Common/Images/MCXN947.png" width="300"/></p>](Common/Images/MCXN947.png)
-- FRDM MCXW71   
-[<p align="center"><img src="Common/Images/MCXW71.png" width="300"/></p>](Common/Images/MCXW71.png)
+- FRDM MCXW72   
+[<p align="center"><img src="Common/Images/MCXW72.png" width="300"/></p>](Common/Images/MCXW72.png)
 - FRDM RW612   
 [<p align="center"><img src="Common/Images/RW612.png" width="300"/></p>](Common/Images/RW612.png)
 
-#### Boards: FRDM-MCXN947, FRDM-RW612, FRDM-MCXW71, FRDM-MCXA153, FRDM-MCXA156, FRDM-MCXC041, FRDM-MCXC242, FRDM-MCXC444, FRDM-MCXN236
-#### Categories: Graphics, HMI, User Interface
+#### Boards: FRDM-MCXA156, FRDM-MCXN236, FRDM-MCXA153, FRDM-MCXN947, FRDM-MCXC444, FRDM-MCXC041, FRDM-MCXC242, FRDM-RW612, FRDM-MCXW72
+#### Categories: HMI, Graphics, User Interface
 #### Peripherals: GPIO, I2C, UART
 #### Toolchains: MCUXpresso IDE, VS Code
 
@@ -36,53 +36,58 @@ and is supported for many FRDM boards.
 2. [Hardware](#step2)
 3. [Setup](#step3)
 4. [Results](#step4)
-5. [FAQs](#step5) 
-6. [Support](#step6)
-7. [Release Notes](#step7)
+5. [Release Notes](#step5)
 
 ## 1. Software<a name="step1"></a>
-- [MCUXpresso 11.10.0 or newer.](https://nxp.com/mcuxpresso)
 - [MCUXpresso for VScode 24.8.9 or newer](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc800-arm-cortex-m0-plus-/mcuxpresso-for-visual-studio-code:MCUXPRESSO-VSC?cid=wechat_iot_303216)
 - [SDK for FRDM board](https://mcuxpresso.nxp.com/en/select)
 
-## 2. Hardware (See README in specific project folder)<a name="step2"></a>
-- [FRDM](https://www.nxp.com/design/design-center/development-boards-and-designs/general-purpose-mcus:FREDEVPLA) 
+## 2. Hardware <a name="step2"></a>
+- [FRDM](https://www.nxp.com/design/design-center/development-boards-and-designs/frdm-development-boards:FRDM) 
 - [MIKROE OLED-B-CLICK](https://www.mikroe.com/oled-b-click)   
 [<p align="center"><img src="Common/Images/OledBClick.png" width="200"/></p>](Common/Images/OledBClick.png)
 
-
 ## 3. Setup<a name="step3"></a>
-### See README in specific project folder
+Refer to the README file in the corresponding project folder for board specific setup and build instructions:
+- [FRDM MCXC041](dm-mikroe-oledBclick-frdm-mcxc041\README.md) 
+- [FRDM MCXC242](dm-mikroe-oledBclick-frdm-mcxc242\README.md)   
+- [FRDM MCXC444](dm-mikroe-oledBclick-frdm-mcxc444\README.md)      
+- [FRDM MCXA153](dm-mikroe-oledBclick-frdm-mcxa153\README.md)      
+- [FRDM MCXA156](dm-mikroe-oledBclick-frdm-mcxa156\README.md)      
+- [FRDM MCXN236](dm-mikroe-oledBclick-frdm-mcxn236\README.md)      
+- [FRDM MCXN947](dm-mikroe-oledBclick-frdm-mcxn947\README.md)      
+- [FRDM MCXW72](dm-mikroe-oledBclick-frdm-mcxw72\README.md)      
+- [FRDM RW612](dm-mikroe-oledBclick-frdm-rw612\README.md)      
 
 ## 4. Results<a name="step4"></a>
-### See README in specific project folder
+Demonstration results are documented in the README file of each specific project folder.
 
 #### Project Metadata
 
 <!----- Boards ----->
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXN947-blue)]()
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;RW612-blue)](https://www.nxp.com/pip/RW612)
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXW71-blue)]()
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXA153-blue)]()
 [![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXA156-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXN236-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXA153-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXN947-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXC444-blue)]()
 [![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXC041-blue)]()
 [![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXC242-blue)]()
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXC444-blue)]()
-[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXN236-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;RW612-blue)]()
+[![Board badge](https://img.shields.io/badge/Board-FRDM&ndash;MCXW72-blue)]()
 
 <!----- Categories ----->
-[![Category badge](https://img.shields.io/badge/Category-GRAPHICS-yellowgreen)](https://github.com/search?q=org%3Anxp-appcodehub+graphics+in%3Areadme&type=Repositories)
-[![Category badge](https://img.shields.io/badge/Category-HMI-yellowgreen)](https://github.com/search?q=org%3Anxp-appcodehub+hmi+in%3Areadme&type=Repositories)
-[![Category badge](https://img.shields.io/badge/Category-USER%20INTERFACE-yellowgreen)](https://github.com/search?q=org%3Anxp-appcodehub+ui+in%3Areadme&type=Repositories)
+[![Category badge](https://img.shields.io/badge/Category-HMI-yellowgreen)](https://mcuxpresso.nxp.com/appcodehub?category=hmi)
+[![Category badge](https://img.shields.io/badge/Category-GRAPHICS-yellowgreen)](https://mcuxpresso.nxp.com/appcodehub?category=graphics)
+[![Category badge](https://img.shields.io/badge/Category-USER%20INTERFACE-yellowgreen)](https://mcuxpresso.nxp.com/appcodehub?category=ui)
 
 <!----- Peripherals ----->
-[![Peripheral badge](https://img.shields.io/badge/Peripheral-GPIO-yellow)](https://github.com/search?q=org%3Anxp-appcodehub+gpio+in%3Areadme&type=Repositories)
-[![Peripheral badge](https://img.shields.io/badge/Peripheral-I2C-yellow)](https://github.com/search?q=org%3Anxp-appcodehub+i2c+in%3Areadme&type=Repositories)
-[![Peripheral badge](https://img.shields.io/badge/Peripheral-UART-yellow)](https://github.com/search?q=org%3Anxp-appcodehub+uart+in%3Areadme&type=Repositories)
+[![Peripheral badge](https://img.shields.io/badge/Peripheral-GPIO-yellow)](https://mcuxpresso.nxp.com/appcodehub?peripheral=gpio)
+[![Peripheral badge](https://img.shields.io/badge/Peripheral-I2C-yellow)](https://mcuxpresso.nxp.com/appcodehub?peripheral=i2c)
+[![Peripheral badge](https://img.shields.io/badge/Peripheral-UART-yellow)](https://mcuxpresso.nxp.com/appcodehub?peripheral=uart)
 
 <!----- Toolchains ----->
-[![Toolchain badge](https://img.shields.io/badge/Toolchain-MCUXPRESSO%20IDE-orange)](https://github.com/search?q=org%3Anxp-appcodehub+mcux+in%3Areadme&type=Repositories)
-[![Toolchain badge](https://img.shields.io/badge/Toolchain-VS%20CODE-orange)](https://github.com/search?q=org%3Anxp-appcodehub+vscode+in%3Areadme&type=Repositories)
+[![Toolchain badge](https://img.shields.io/badge/Toolchain-MCUXPRESSO%20IDE-orange)](https://mcuxpresso.nxp.com/appcodehub?toolchain=mcux)
+[![Toolchain badge](https://img.shields.io/badge/Toolchain-VS%20CODE-orange)](https://mcuxpresso.nxp.com/appcodehub?toolchain=vscode)
 
 Questions regarding the content/correctness of this example can be entered as Issues within this GitHub repository.
 
@@ -93,10 +98,11 @@ Questions regarding the content/correctness of this example can be entered as Is
 [![Follow us on Facebook](https://img.shields.io/badge/Facebook-Follow%20us%20on%20Facebook-blue.svg)](https://www.facebook.com/nxpsemi/)
 [![Follow us on Twitter](https://img.shields.io/badge/X-Follow%20us%20on%20X-black.svg)](https://x.com/NXP)
 
-## 7. Release Notes<a name="step7"></a>
-| Version | Description / Update                           | Date                        |
-|:-------:|------------------------------------------------|----------------------------:|
-| 1.0     | Initial release on Application Code Hub        | September 23<sup>rd</sup> 2024 |
+## 5. Release Notes<a name="step5"></a>
+| Version | Description / Update                                           | Date                            |
+|:-------:|----------------------------------------------------------------|--------------------------------:|
+| 1.0     | Initial release on Application Code Hub                        | September 30 <sup>th</sup> 2024 |
+| 2.0     | Ported all projects to VS Code and replaced MCXW71 with MCXW72 | May 11 <sup>th</sup> 2026       |
 
 <small>
 <b>Trademarks and Service Marks</b>: There are a number of proprietary logos, service marks, trademarks, slogans and product designations ("Marks") found on this Site. By making the Marks available on this Site, NXP is not granting you a license to use them in any fashion. Access to this Site does not confer upon you any license to the Marks under any of NXP or any third party's intellectual property rights. While NXP encourages others to link to our URL, no NXP trademark or service mark may be used as a hyperlink without NXP’s prior written permission. The following Marks are the property of NXP. This list is not comprehensive; the absence of a Mark from the list does not constitute a waiver of intellectual property rights established by NXP in a Mark.

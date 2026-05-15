@@ -1,0 +1,135 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "created": "2026-04-30T21:27:35Z",
+    "creators": [
+      "Organization: NXP"
+    ],
+    "licenseListVersion": "3.26"
+  },
+  "name": "mcu_ach_rel2026-dm-mikroe-oledbclick-frdm-v2-0",
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://nxp.com/spdx/35216f9e-c2a9-40c3-a733-b6555310761b",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b",
+      "name": "mcu_ach_rel2026",
+      "versionInfo": "dm-mikroe-oledbclick-frdm-v2-0",
+      "licenseConcluded": "(BSD-3-Clause)",
+      "licenseDeclared": "(BSD-3-Clause)",
+      "downloadLocation": "NOASSERTION",
+      "originator": "Organization: mcu_ach_rel2026",
+      "supplier": "NOASSERTION",
+      "externalRefs": [],
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---1ffe6406-89b4-415b-9902-0d6549960424",
+      "name": "ARM-software/CMSIS_6",
+      "versionInfo": "v6.1.0",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "downloadLocation": "NOASSERTION",
+      "originator": "Organization: arm-software",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceLocator": "49c34cad-5a80-43be-b670-1679d1d1f637",
+          "referenceType": "BlackDuck-ComponentOrigin"
+        },
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:github/arm-software/cmsis_6@v6.1.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---d4289f02-3e4b-4538-923e-cdf7242b92a6",
+      "name": "FreeRTOS Real Time Kernel",
+      "versionInfo": "V11.0.1",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "homepage": "https://sourceforge.net/projects/freertos",
+      "downloadLocation": "NOASSERTION",
+      "originator": "Organization: freertos",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceLocator": "259bbcd4-456e-40c6-b194-725aa0a04b27",
+          "referenceType": "BlackDuck-ComponentOrigin"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:amazon:aws-freertos-kernel:11.0.1:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:amazon:freertos:11.0.1:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:o:amazon:freertos:11.0.1:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        },
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:github/freertos/freertos-kernel@V11.0.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---acca2945-c368-44b8-95eb-dc6121d9c6d5",
+      "name": "nxp-mcuxpresso/mcux-sdk",
+      "versionInfo": "MCUX_2.16.100",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "downloadLocation": "NOASSERTION",
+      "originator": "Organization: nxp-mcuxpresso",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceLocator": "c439a117-b85f-4a02-9f67-921b20018204",
+          "referenceType": "BlackDuck-ComponentOrigin"
+        },
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:github/nxp-mcuxpresso/mcux-sdk@MCUX_2.16.100",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b"
+    },
+    {
+      "spdxElementId": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---1ffe6406-89b4-415b-9902-0d6549960424"
+    },
+    {
+      "spdxElementId": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---acca2945-c368-44b8-95eb-dc6121d9c6d5"
+    },
+    {
+      "spdxElementId": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-package-35216f9e-c2a9-40c3-a733-b6555310761b---d4289f02-3e4b-4538-923e-cdf7242b92a6"
+    }
+  ]
+}

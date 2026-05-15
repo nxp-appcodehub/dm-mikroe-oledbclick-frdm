@@ -1,0 +1,16 @@
+{
+  "version": "25.3",
+  "toolchainPath": "",
+  "linkedProjects": [],
+  "trustZoneType": "none",
+  "multicoreType": "none",
+  "projectType": "sdk-v2-freestanding",
+  "projectName": "dm-mikroe-oledBclick-frdm-mcxw72",
+  "sdk": {
+    "path": "",
+    "version": "",
+    "boardId": "frdmmcxw72",
+    "deviceId": "MCXW727CxxxA",
+    "coreId": "cm33_core0"
+  }
+}
